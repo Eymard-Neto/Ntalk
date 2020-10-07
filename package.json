@@ -1,0 +1,19 @@
+{
+  "name": "ntalk",
+  "version": "0.0.1",
+  "private": true,
+  "author": "Eymard Neto <eymardneto115@gmail.com>",
+  "description": "Node talk - Agenda de contatos",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-load": "^1.1.16",
+    "http-errors": "~1.6.3",
+    "morgan": "~1.9.1"
+  }
+}
