@@ -4,16 +4,23 @@ const createError = require("http-errors"),
   path = require("path"),
   cookieParser = require("cookie-parser"),
   logger = require("morgan"),
+  session = require("express-session"),
+  bodyParser = require("body-parser"),
+  methodOverride = require("method-override"),
   app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
+app.use(cookieParser("ntalk"));
+app.use(session({ resave: true, saveUninitialized: true, secret: "uwotm8" }));
+app.use(bodyParser.json());
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(methodOverride());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, "public")));
 
 load("models").then("controllers").then("routes").into(app);
