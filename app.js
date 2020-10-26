@@ -20,6 +20,7 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(methodOverride());
 app.use(express.urlencoded({ extended: true }));
+app.use(app.router);
 
 app.use(express.static(path.join(__dirname, "public")));
 

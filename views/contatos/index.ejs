@@ -3,6 +3,25 @@
   <h2>Ntalk - Agenda de contatos</h2>
 </header>
 <section>
-  <p>Bem-vindo <%- usuario.nome %></p>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th>Ação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% contatos.forEach((contato, index) => {
+      <tr>
+        <td><%- contato.nome %></td>
+        <td><%- contato.email %></td>
+        <td>
+          <a href="/contato/<%- index %>">Detalhes</a>
+        </td>
+      </tr>
+      })%>
+    </tbody>
+  </table>
 </section>
 <% include ../exit %> <% include ../footer %>
