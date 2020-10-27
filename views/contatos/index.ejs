@@ -1,4 +1,4 @@
-<% include ../header %>
+<% include ../header%>
 <header>
   <h2>Ntalk - Agenda de contatos</h2>
 </header>
@@ -12,15 +12,15 @@
       </tr>
     </thead>
     <tbody>
-      <% contatos.forEach((contato, index) => {
+      <% contatos.forEach((contato, index) => { %>
       <tr>
         <td><%- contato.nome %></td>
         <td><%- contato.email %></td>
         <td>
-          <a href="/contato/<%- index %>">Detalhes</a>
+          <a href="/contato/<% index %>">Detalhes</a>
         </td>
       </tr>
-      })%>
+      <% })%>
     </tbody>
   </table>
 </section>
