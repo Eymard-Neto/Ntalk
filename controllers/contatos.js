@@ -3,14 +3,16 @@ module.exports = (app) => {
     index: (req, res) => {
       const usuario = req.session.usuario,
         contatos = usuario.contatos ? usuario.contatos : [],
-        params = { usuario: usuario, contatos: contatos };
-
-      console.log(params);
+        params = { usuario: usuario.usuario, contatos: contatos };
       res.render("contatos/index", params);
+    },
+    createFrom: (req, res) => {
+      res.render("contatos/create");
     },
     create: (req, res) => {
       const contato = req.body.contato,
         usuario = req.session.usuario;
+
       usuario.contatos.push(contato);
       res.redirect("/contatos");
     },
@@ -22,7 +24,7 @@ module.exports = (app) => {
     },
     edit: (req, res) => {
       const id = req.params.id,
-        usuario = req.session.usuarios,
+        usuario = req.session.usuario.usuario,
         contato = usuario.contatos[id],
         params = { usuario: usuario, contato: contato, id: id };
 
@@ -30,13 +32,13 @@ module.exports = (app) => {
     },
     update: (req, res) => {
       const contato = req.body.contato,
-        usuario = rq.session.usuario;
+        usuario = rq.session.usuario.usuario;
 
       usuario.contatos[req.params.id] = contato;
       res.redirect("/contatos");
     },
     destroy: (req, res) => {
-      const usuario = req.session.usuario,
+      const usuario = req.session.usuario.usuario,
         id = req.params.id;
       usuario.contatos.splice(id, 1);
       res.redirect("/contatos");

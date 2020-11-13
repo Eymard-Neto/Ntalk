@@ -1,0 +1,29 @@
+<% include ../header%>
+<header>
+  <h2>Ntalk - Adicionar contatos</h2>
+</header>
+
+<section>
+  <form action="/contato" method="post">
+  
+    <label for="edit-nome">Nome:</label>
+    <input
+      type="text"
+      id="edit-nome"
+      name="contato[nome]"
+  
+    />
+
+    <label for="edit-email">E-mail:</label>
+    <input
+      type="email"
+      id="edit-email"
+      name="contato[email]"
+
+    />
+
+    <button type="submit">Adicionar</button>
+  </form>
+</section>
+
+<% include ../exit %> <% include ../footer %>
